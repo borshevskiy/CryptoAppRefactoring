@@ -1,4 +1,4 @@
-package com.borshevskiy.cryptoapprefactoring.api
+package com.borshevskiy.cryptoapprefactoring.data.network
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

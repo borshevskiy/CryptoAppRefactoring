@@ -1,11 +1,11 @@
-package com.borshevskiy.cryptoapprefactoring.database
+package com.borshevskiy.cryptoapprefactoring.data.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.borshevskiy.cryptoapprefactoring.pojo.CoinPriceInfo
+import com.borshevskiy.cryptoapprefactoring.data.model.CoinPriceInfo
 
 @Dao
 interface CoinPriceInfoDao {

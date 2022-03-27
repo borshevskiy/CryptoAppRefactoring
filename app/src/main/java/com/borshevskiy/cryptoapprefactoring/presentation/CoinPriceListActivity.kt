@@ -1,11 +1,12 @@
-package com.borshevskiy.cryptoapprefactoring
+package com.borshevskiy.cryptoapprefactoring.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.borshevskiy.cryptoapprefactoring.adapters.CoinInfoAdapter
-import com.borshevskiy.cryptoapprefactoring.pojo.CoinPriceInfo
+import com.borshevskiy.cryptoapprefactoring.R
+import com.borshevskiy.cryptoapprefactoring.presentation.adapters.CoinInfoAdapter
+import com.borshevskiy.cryptoapprefactoring.data.model.CoinPriceInfo
 import kotlinx.android.synthetic.main.activity_coin_prce_list.*
 
 class CoinPriceListActivity : AppCompatActivity() {

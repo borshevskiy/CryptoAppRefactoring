@@ -1,4 +1,4 @@
-package com.borshevskiy.cryptoapprefactoring.adapters
+package com.borshevskiy.cryptoapprefactoring.presentation.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.borshevskiy.cryptoapprefactoring.R
-import com.borshevskiy.cryptoapprefactoring.pojo.CoinPriceInfo
+import com.borshevskiy.cryptoapprefactoring.data.model.CoinPriceInfo
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_coin_info.view.*
 

@@ -1,8 +1,8 @@
-package com.borshevskiy.cryptoapprefactoring.pojo
+package com.borshevskiy.cryptoapprefactoring.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.borshevskiy.cryptoapprefactoring.api.ApiFactory.BASE_IMAGE_URL
+import com.borshevskiy.cryptoapprefactoring.data.network.ApiFactory.BASE_IMAGE_URL
 import com.borshevskiy.cryptoapprefactoring.utils.convertTimestampToTime
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

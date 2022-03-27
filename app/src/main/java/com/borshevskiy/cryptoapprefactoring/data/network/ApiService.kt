@@ -1,7 +1,7 @@
-package com.borshevskiy.cryptoapprefactoring.api
+package com.borshevskiy.cryptoapprefactoring.data.network
 
-import com.borshevskiy.cryptoapprefactoring.pojo.CoinInfoListOfData
-import com.borshevskiy.cryptoapprefactoring.pojo.CoinPriceInfoRawData
+import com.borshevskiy.cryptoapprefactoring.data.model.CoinInfoListOfData
+import com.borshevskiy.cryptoapprefactoring.data.model.CoinPriceInfoRawData
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

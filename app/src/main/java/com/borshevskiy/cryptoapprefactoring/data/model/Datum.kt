@@ -1,4 +1,4 @@
-package com.borshevskiy.cryptoapprefactoring.pojo
+package com.borshevskiy.cryptoapprefactoring.data.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

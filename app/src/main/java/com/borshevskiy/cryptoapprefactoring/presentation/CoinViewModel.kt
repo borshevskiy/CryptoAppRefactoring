@@ -1,13 +1,13 @@
-package com.borshevskiy.cryptoapprefactoring
+package com.borshevskiy.cryptoapprefactoring.presentation
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.borshevskiy.cryptoapprefactoring.api.ApiFactory
-import com.borshevskiy.cryptoapprefactoring.database.AppDatabase
-import com.borshevskiy.cryptoapprefactoring.pojo.CoinPriceInfo
-import com.borshevskiy.cryptoapprefactoring.pojo.CoinPriceInfoRawData
+import com.borshevskiy.cryptoapprefactoring.data.network.ApiFactory
+import com.borshevskiy.cryptoapprefactoring.data.database.AppDatabase
+import com.borshevskiy.cryptoapprefactoring.data.model.CoinPriceInfo
+import com.borshevskiy.cryptoapprefactoring.data.model.CoinPriceInfoRawData
 import com.google.gson.Gson
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
