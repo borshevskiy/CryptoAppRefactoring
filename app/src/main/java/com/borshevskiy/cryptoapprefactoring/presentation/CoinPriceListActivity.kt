@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.borshevskiy.cryptoapprefactoring.R
 import com.borshevskiy.cryptoapprefactoring.presentation.adapters.CoinInfoAdapter
-import com.borshevskiy.cryptoapprefactoring.data.model.CoinPriceInfo
+import com.borshevskiy.cryptoapprefactoring.data.network.model.CoinInfoDto
 import kotlinx.android.synthetic.main.activity_coin_prce_list.*
 
 class CoinPriceListActivity : AppCompatActivity() {
@@ -18,7 +18,7 @@ class CoinPriceListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_coin_prce_list)
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
-            override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
+            override fun onCoinClick(coinPriceInfo: CoinInfoDto) {
                 val intent = CoinDetailActivity.newIntent(
                     this@CoinPriceListActivity,
                     coinPriceInfo.fromSymbol
