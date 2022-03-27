@@ -3,18 +3,19 @@ package com.borshevskiy.cryptoapprefactoring.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.borshevskiy.cryptoapprefactoring.R
+import com.borshevskiy.cryptoapprefactoring.databinding.ActivityCoinPrceListBinding
 import com.borshevskiy.cryptoapprefactoring.domain.CoinInfo
 import com.borshevskiy.cryptoapprefactoring.presentation.adapters.CoinInfoAdapter
-import kotlinx.android.synthetic.main.activity_coin_prce_list.*
 
 class CoinPriceListActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityCoinPrceListBinding
     private lateinit var viewModel: CoinViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_coin_prce_list)
+        binding = ActivityCoinPrceListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
             override fun onCoinClick(coinInfo: CoinInfo) {
@@ -25,7 +26,7 @@ class CoinPriceListActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-        rvCoinPriceList.adapter = adapter
+        binding.rvCoinPriceList.adapter = adapter
         viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
         viewModel.coinInfoList.observe(this) {
             adapter.coinInfoList = it
