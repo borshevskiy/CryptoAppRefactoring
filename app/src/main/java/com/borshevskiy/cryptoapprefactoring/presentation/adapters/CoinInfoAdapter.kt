@@ -3,16 +3,16 @@ package com.borshevskiy.cryptoapprefactoring.presentation.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import com.borshevskiy.cryptoapprefactoring.R
 import com.borshevskiy.cryptoapprefactoring.databinding.ItemCoinInfoBinding
 import com.borshevskiy.cryptoapprefactoring.domain.CoinInfo
+import com.borshevskiy.cryptoapprefactoring.presentation.CoinPriceListFragmentDirections
 import com.squareup.picasso.Picasso
 
 class CoinInfoAdapter(private val context: Context) :
     ListAdapter<CoinInfo, CoinInfoViewHolder>(CoinInfoDiffCallback) {
-
-    var onCoinClickListener: OnCoinClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoinInfoViewHolder {
         val binding =
@@ -31,13 +31,9 @@ class CoinInfoAdapter(private val context: Context) :
                 tvLastUpdate.text = String.format(lastUpdateTemplate, lastUpdate)
                 Picasso.get().load(imageUrl).into(ivLogoCoin)
                 root.setOnClickListener {
-                    onCoinClickListener?.onCoinClick(this)
+                    root.findNavController().navigate(CoinPriceListFragmentDirections.actionCoinPriceListFragmentToCoinDetailFragment2(coin))
                 }
             }
         }
-    }
-
-    interface OnCoinClickListener {
-        fun onCoinClick(coinInfo: CoinInfo)
     }
 }
