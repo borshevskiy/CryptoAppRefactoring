@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/coinPriceListFragment">
+
+    <fragment
+        android:id="@+id/coinPriceListFragment"
+        android:name="com.borshevskiy.cryptoapprefactoring.presentation.CoinPriceListFragment"
+        android:label="fragment_coin_price_list"
+        tools:layout="@layout/fragment_coin_price_list" >
+        <action
+            android:id="@+id/action_coinPriceListFragment_to_coinDetailFragment2"
+            app:destination="@id/coinDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coinDetailFragment"
+        android:name="com.borshevskiy.cryptoapprefactoring.presentation.CoinDetailFragment"
+        android:label="fragment_coin_detail"
+        tools:layout="@layout/fragment_coin_detail" >
+        <argument
+            android:name="coinInfo"
+            app:argType="com.borshevskiy.cryptoapprefactoring.domain.CoinInfo" />
+    </fragment>
+</navigation>
