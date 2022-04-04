@@ -5,25 +5,28 @@ import androidx.work.CoroutineWorker
 import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkerParameters
-import com.borshevskiy.cryptoapprefactoring.data.database.AppDatabase
+import com.borshevskiy.cryptoapprefactoring.data.database.CoinInfoDao
 import com.borshevskiy.cryptoapprefactoring.data.mapper.CoinMapper
-import com.borshevskiy.cryptoapprefactoring.data.network.ApiFactory
+import com.borshevskiy.cryptoapprefactoring.data.network.ApiService
 import kotlinx.coroutines.delay
 
-class RefreshDataWorker(context: Context, workerParameters: WorkerParameters): CoroutineWorker(context, workerParameters) {
+class RefreshDataWorker(
+    private val coinInfoDao: CoinInfoDao,
+    private val coinMapper: CoinMapper,
+    private val apiService: ApiService,
+    context: Context,
+    workerParameters: WorkerParameters
+): CoroutineWorker(context, workerParameters) {
 
-    private val coinInfoDao = AppDatabase.getInstance(context).coinPriceInfoDao()
-    private val apiService = ApiFactory.apiService
-    private val mapper = CoinMapper()
 
     override suspend fun doWork(): Result {
         while (true) {
             try {
                 val topCoins = apiService.getTopCoinsInfo(limit = 50)
-                val fSyms = mapper.mapNamesListToString(topCoins)
+                val fSyms = coinMapper.mapNamesListToString(topCoins)
                 val jsonContainer = apiService.getFullPriceList(fSyms = fSyms)
-                val coinInfoDtoList = mapper.mapJsonContainerToListCoinInfo(jsonContainer)
-                val dbModelList = coinInfoDtoList.map { mapper.mapDtoToDbModel(it) }
+                val coinInfoDtoList = coinMapper.mapJsonContainerToListCoinInfo(jsonContainer)
+                val dbModelList = coinInfoDtoList.map { coinMapper.mapDtoToDbModel(it) }
                 coinInfoDao.insertPriceList(dbModelList)
             } catch (e: Exception) {
             }
